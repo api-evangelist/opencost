@@ -1,0 +1,15 @@
+name: OpenCost
+description: An open source specification and tool for real-time cost monitoring of
+  Kubernetes infrastructure and cloud spending, enabling teams to measure, allocate,
+  and optimize cloud costs across workloads.
+url: https://opencost.io/
+tags:
+- Cloud Cost Management
+- Kubernetes
+- FinOps
+- Observability
+- CNCF
+created: '2025'
+modified: '2025'
+apis: []
+common: []
