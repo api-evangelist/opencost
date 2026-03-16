@@ -1,15 +1,29 @@
+aid: opencost
 name: OpenCost
-description: An open source specification and tool for real-time cost monitoring of
-  Kubernetes infrastructure and cloud spending, enabling teams to measure, allocate,
-  and optimize cloud costs across workloads.
-url: https://opencost.io/
+description: >-
+  An open source specification and tool for real-time cost monitoring of
+  Kubernetes infrastructure and cloud spending, enabling teams to measure,
+  allocate, and optimize cloud costs across workloads.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-- Cloud Cost Management
-- Kubernetes
-- FinOps
-- Observability
-- CNCF
-created: '2025'
-modified: '2025'
+  - Cloud Cost Management
+  - Kubernetes
+  - FinOps
+  - Observability
+  - CNCF
+url: https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/apis.yml
+created: '2025-01-01'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 apis: []
-common: []
+common:
+  - type: Website
+    url: https://opencost.io/
+  - type: Documentation
+    url: https://www.opencost.io/docs/
+  - type: GitHub Organization
+    url: https://github.com/opencost/opencost
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
