@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/opencost/json-schema/opencost-allocation-schema.json",
+  "title": "OpenCost Allocation",
+  "type": "object",
+  "properties": {
+    "name": {"type": "string"},
+    "cpuCost": {"type": "number"},
+    "cpuCoreUsageAverage": {"type": "number"},
+    "ramCost": {"type": "number"},
+    "ramByteUsageAverage": {"type": "number"},
+    "pvCost": {"type": "number"},
+    "networkCost": {"type": "number"},
+    "sharedCost": {"type": "number"},
+    "externalCost": {"type": "number"},
+    "totalCost": {"type": "number"},
+    "minutes": {"type": "number"},
+    "window": {
+      "type": "object",
+      "properties": {
+        "start": {"type": "string", "format": "date-time"},
+        "end": {"type": "string", "format": "date-time"}
+      }
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    }
+  },
+  "required": ["name", "totalCost"]
+}

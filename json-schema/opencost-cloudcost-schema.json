@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/opencost/json-schema/opencost-cloudcost-schema.json",
+  "title": "OpenCost CloudCost",
+  "type": "object",
+  "properties": {
+    "netCost": {
+      "type": "object",
+      "properties": {
+        "cost": {"type": "number"}
+      }
+    }
+  }
+}

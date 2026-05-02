@@ -1,0 +1,42 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "opencost": "https://www.opencost.io/schemas/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Allocation": {
+      "@id": "opencost:Allocation",
+      "@context": {
+        "name": "schema:name",
+        "cpuCost": {"@id": "opencost:cpuCost", "@type": "xsd:decimal"},
+        "ramCost": {"@id": "opencost:ramCost", "@type": "xsd:decimal"},
+        "pvCost": {"@id": "opencost:pvCost", "@type": "xsd:decimal"},
+        "networkCost": {"@id": "opencost:networkCost", "@type": "xsd:decimal"},
+        "sharedCost": {"@id": "opencost:sharedCost", "@type": "xsd:decimal"},
+        "externalCost": {"@id": "opencost:externalCost", "@type": "xsd:decimal"},
+        "totalCost": {"@id": "opencost:totalCost", "@type": "xsd:decimal"},
+        "minutes": {"@id": "opencost:minutes", "@type": "xsd:decimal"}
+      }
+    },
+
+    "Asset": {
+      "@id": "opencost:Asset",
+      "@context": {
+        "type": "opencost:assetType",
+        "totalCost": {"@id": "opencost:totalCost", "@type": "xsd:decimal"},
+        "cpuCost": {"@id": "opencost:cpuCost", "@type": "xsd:decimal"},
+        "ramCost": {"@id": "opencost:ramCost", "@type": "xsd:decimal"},
+        "providerID": "opencost:providerID"
+      }
+    },
+
+    "CloudCost": {
+      "@id": "opencost:CloudCost",
+      "@context": {
+        "netCost": {"@id": "opencost:netCost", "@type": "xsd:decimal"}
+      }
+    }
+  }
+}
