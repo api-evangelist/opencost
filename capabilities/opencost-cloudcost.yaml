@@ -1,0 +1,91 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: OpenCost API — CloudCost
+  description: 'OpenCost API — CloudCost. 1 operations. Lead operation: Query cloud provider billing data. Self-contained
+    Naftiko capability covering one Opencost business surface.'
+  tags:
+  - Opencost
+  - CloudCost
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OPENCOST_API_KEY: OPENCOST_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: opencost-cloudcost
+    baseUri: http://localhost:9003
+    description: OpenCost API — CloudCost business capability. Self-contained, no shared references.
+    resources:
+    - name: cloudCost
+      path: /cloudCost
+      operations:
+      - name: getcloudcost
+        method: GET
+        description: Query cloud provider billing data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: window
+          in: query
+          type: string
+          required: true
+        - name: aggregate
+          in: query
+          type: string
+        - name: accumulate
+          in: query
+          type: string
+        - name: filter
+          in: query
+          type: string
+  exposes:
+  - type: rest
+    namespace: opencost-cloudcost-rest
+    port: 8080
+    description: REST adapter for OpenCost API — CloudCost. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/cloudcost
+      name: cloudcost
+      description: REST surface for cloudCost.
+      operations:
+      - method: GET
+        name: getcloudcost
+        description: Query cloud provider billing data
+        call: opencost-cloudcost.getcloudcost
+        with:
+          window: rest.window
+          aggregate: rest.aggregate
+          accumulate: rest.accumulate
+          filter: rest.filter
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: opencost-cloudcost-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for OpenCost API — CloudCost. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: query-cloud-provider-billing-data
+      description: Query cloud provider billing data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opencost-cloudcost.getcloudcost
+      with:
+        window: tools.window
+        aggregate: tools.aggregate
+        accumulate: tools.accumulate
+        filter: tools.filter
+      outputParameters:
+      - type: object
+        mapping: $.

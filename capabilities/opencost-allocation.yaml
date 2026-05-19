@@ -1,0 +1,114 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: OpenCost API — Allocation
+  description: 'OpenCost API — Allocation. 1 operations. Lead operation: Query Kubernetes workload cost allocations. Self-contained
+    Naftiko capability covering one Opencost business surface.'
+  tags:
+  - Opencost
+  - Allocation
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OPENCOST_API_KEY: OPENCOST_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: opencost-allocation
+    baseUri: http://localhost:9003
+    description: OpenCost API — Allocation business capability. Self-contained, no shared references.
+    resources:
+    - name: allocation
+      path: /allocation
+      operations:
+      - name: getallocation
+        method: GET
+        description: Query Kubernetes workload cost allocations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: window
+          in: query
+          type: string
+          description: Duration of time over which to query.
+          required: true
+        - name: aggregate
+          in: query
+          type: string
+          description: Field by which to aggregate (namespace, controller, label:app, etc.).
+        - name: step
+          in: query
+          type: string
+          description: Duration of a single allocation set.
+        - name: accumulate
+          in: query
+          type: boolean
+        - name: resolution
+          in: query
+          type: string
+        - name: includeIdle
+          in: query
+          type: boolean
+        - name: shareIdle
+          in: query
+          type: boolean
+        - name: idleByNode
+          in: query
+          type: boolean
+  exposes:
+  - type: rest
+    namespace: opencost-allocation-rest
+    port: 8080
+    description: REST adapter for OpenCost API — Allocation. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/allocation
+      name: allocation
+      description: REST surface for allocation.
+      operations:
+      - method: GET
+        name: getallocation
+        description: Query Kubernetes workload cost allocations
+        call: opencost-allocation.getallocation
+        with:
+          window: rest.window
+          aggregate: rest.aggregate
+          step: rest.step
+          accumulate: rest.accumulate
+          resolution: rest.resolution
+          includeIdle: rest.includeIdle
+          shareIdle: rest.shareIdle
+          idleByNode: rest.idleByNode
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: opencost-allocation-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for OpenCost API — Allocation. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: query-kubernetes-workload-cost-allocations
+      description: Query Kubernetes workload cost allocations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opencost-allocation.getallocation
+      with:
+        window: tools.window
+        aggregate: tools.aggregate
+        step: tools.step
+        accumulate: tools.accumulate
+        resolution: tools.resolution
+        includeIdle: tools.includeIdle
+        shareIdle: tools.shareIdle
+        idleByNode: tools.idleByNode
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,86 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: OpenCost API — Assets
+  description: 'OpenCost API — Assets. 1 operations. Lead operation: Query underlying cloud infrastructure asset costs. Self-contained
+    Naftiko capability covering one Opencost business surface.'
+  tags:
+  - Opencost
+  - Assets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OPENCOST_API_KEY: OPENCOST_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: opencost-assets
+    baseUri: http://localhost:9003
+    description: OpenCost API — Assets business capability. Self-contained, no shared references.
+    resources:
+    - name: assets
+      path: /assets
+      operations:
+      - name: getassets
+        method: GET
+        description: Query underlying cloud infrastructure asset costs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: window
+          in: query
+          type: string
+          required: true
+        - name: aggregate
+          in: query
+          type: string
+        - name: accumulate
+          in: query
+          type: boolean
+  exposes:
+  - type: rest
+    namespace: opencost-assets-rest
+    port: 8080
+    description: REST adapter for OpenCost API — Assets. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/assets
+      name: assets
+      description: REST surface for assets.
+      operations:
+      - method: GET
+        name: getassets
+        description: Query underlying cloud infrastructure asset costs
+        call: opencost-assets.getassets
+        with:
+          window: rest.window
+          aggregate: rest.aggregate
+          accumulate: rest.accumulate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: opencost-assets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for OpenCost API — Assets. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: query-underlying-cloud-infrastructure-asset
+      description: Query underlying cloud infrastructure asset costs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opencost-assets.getassets
+      with:
+        window: tools.window
+        aggregate: tools.aggregate
+        accumulate: tools.accumulate
+      outputParameters:
+      - type: object
+        mapping: $.
