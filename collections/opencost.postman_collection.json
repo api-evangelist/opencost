@@ -1,0 +1,613 @@
+{
+  "item": [
+    {
+      "id": "29de7d57-db7b-4230-9263-3a2e2fa31ec5",
+      "name": "Allocation",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "12693867-a302-436f-a186-46069adcfc62",
+          "name": "Query Kubernetes workload cost allocations",
+          "request": {
+            "name": "Query Kubernetes workload cost allocations",
+            "description": {
+              "content": "Returns costs and resources allocated to Kubernetes workloads based on on-demand list pricing.  The 'data' field is an array of sets, one per 'step'.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "allocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "window",
+                  "value": "<string>",
+                  "description": "(Required) Duration of time over which to query."
+                },
+                {
+                  "disabled": false,
+                  "key": "aggregate",
+                  "value": "<string>",
+                  "description": "Field by which to aggregate (namespace, controller, label:app, etc.)."
+                },
+                {
+                  "disabled": false,
+                  "key": "step",
+                  "value": "<string>",
+                  "description": "Duration of a single allocation set."
+                },
+                {
+                  "disabled": false,
+                  "key": "accumulate",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resolution",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeIdle",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "shareIdle",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "idleByNode",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "97700125-6e15-46b8-af72-3cba4e832817",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "allocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "today"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "step",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accumulate",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "resolution",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeIdle",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "shareIdle",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "idleByNode",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9175,\n  \"status\": \"string\",\n  \"data\": [\n    {\n      \"key_0\": {\n        \"name\": \"string\",\n        \"cpuCost\": 7407.502615261593,\n        \"cpuCoreUsageAverage\": 3171.4258031447785,\n        \"ramCost\": 7058.569728450358,\n        \"ramByteUsageAverage\": 6138.515787531679,\n        \"pvCost\": 8402.770094392958,\n        \"networkCost\": 228.37749042836975,\n        \"sharedCost\": 9801.576371971254,\n        \"externalCost\": 9075.938347220763,\n        \"totalCost\": 1260.5493485376762,\n        \"minutes\": 6584.605277679191,\n        \"window\": {\n          \"start\": \"2002-08-30T14:55:16.423Z\",\n          \"end\": \"2022-09-19T17:44:07.515Z\"\n        },\n        \"properties\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        }\n      },\n      \"key_1\": {\n        \"name\": \"string\",\n        \"cpuCost\": 3516.480044695265,\n        \"cpuCoreUsageAverage\": 9090.812099189283,\n        \"ramCost\": 8505.114507420649,\n        \"ramByteUsageAverage\": 6430.91473344291,\n        \"pvCost\": 4464.3855224612425,\n        \"networkCost\": 2019.0149973762107,\n        \"sharedCost\": 4192.531794769565,\n        \"externalCost\": 5255.169504833084,\n        \"totalCost\": 2454.0975007507095,\n        \"minutes\": 6585.927833509549,\n        \"window\": {\n          \"start\": \"2016-04-23T11:37:20.630Z\",\n          \"end\": \"2000-05-20T05:30:39.368Z\"\n        },\n        \"properties\": {\n          \"key_0\": \"string\"\n        }\n      }\n    },\n    {\n      \"key_0\": {\n        \"name\": \"string\",\n        \"cpuCost\": 2721.725993496591,\n        \"cpuCoreUsageAverage\": 6859.0686178699725,\n        \"ramCost\": 2100.704457572872,\n        \"ramByteUsageAverage\": 9452.541520778464,\n        \"pvCost\": 9033.109904192966,\n        \"networkCost\": 8304.056453882647,\n        \"sharedCost\": 5027.476783175332,\n        \"externalCost\": 5424.0573155675065,\n        \"totalCost\": 4643.237896688772,\n        \"minutes\": 9478.230856066413,\n        \"window\": {\n          \"start\": \"2021-12-28T15:43:32.229Z\",\n          \"end\": \"1974-05-12T05:59:20.967Z\"\n        },\n        \"properties\": {\n          \"key_0\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8a30b02e-bab8-408b-9fcc-37156bb9fea3",
+      "name": "Assets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c7f275b4-0d46-4452-b426-5de223d22a6a",
+          "name": "Query underlying cloud infrastructure asset costs",
+          "request": {
+            "name": "Query underlying cloud infrastructure asset costs",
+            "description": {
+              "content": "Returns the costs of nodes, disks, and load balancers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "window",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "aggregate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "accumulate",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b33fc6f-5cc4-4a8f-81c3-b63123c5dfe3",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accumulate",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8692,\n  \"status\": \"string\",\n  \"data\": {\n    \"key_0\": {\n      \"type\": \"string\",\n      \"totalCost\": 8592.524960837321,\n      \"cpuCost\": 7264.625773335574,\n      \"ramCost\": 4759.784035892923,\n      \"providerID\": \"string\",\n      \"window\": {\n        \"start\": \"1993-02-14T19:33:25.058Z\",\n        \"end\": \"2004-08-14T01:44:16.697Z\"\n      }\n    },\n    \"key_1\": {\n      \"type\": \"string\",\n      \"totalCost\": 7995.8596572154465,\n      \"cpuCost\": 5607.1409681856785,\n      \"ramCost\": 7231.714731180845,\n      \"providerID\": \"string\",\n      \"window\": {\n        \"start\": \"1990-11-05T05:16:55.666Z\",\n        \"end\": \"2005-12-19T02:17:33.265Z\"\n      }\n    },\n    \"key_2\": {\n      \"type\": \"string\",\n      \"totalCost\": 341.3333138978003,\n      \"cpuCost\": 3666.050824148989,\n      \"ramCost\": 3293.3480167584626,\n      \"providerID\": \"string\",\n      \"window\": {\n        \"start\": \"1996-07-31T19:24:02.231Z\",\n        \"end\": \"1972-10-12T18:52:40.327Z\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f4cb14c7-bc45-4edf-9534-908c040b2682",
+      "name": "CloudCost",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9a2f7c0b-8e2c-49e6-a640-32ad82a1e8a1",
+          "name": "Query cloud provider billing data",
+          "request": {
+            "name": "Query cloud provider billing data",
+            "description": {
+              "content": "Retrieves non-Kubernetes cloud provider costs via cloud integration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cloudCost"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "window",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "aggregate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "accumulate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "27087d51-9770-4017-bd5e-469a14dc8b90",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloudCost"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accumulate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2590,\n  \"status\": \"string\",\n  \"data\": {\n    \"sets\": [\n      {\n        \"cloudCosts\": {\n          \"key_0\": {\n            \"netCost\": {\n              \"cost\": 6553.0733762920945\n            }\n          },\n          \"key_1\": {\n            \"netCost\": {\n              \"cost\": 4602.811731114198\n            }\n          },\n          \"key_2\": {\n            \"netCost\": {\n              \"cost\": 3020.2023338375784\n            }\n          }\n        }\n      },\n      {\n        \"cloudCosts\": {\n          \"key_0\": {\n            \"netCost\": {\n              \"cost\": 4990.1494267820435\n            }\n          },\n          \"key_1\": {\n            \"netCost\": {\n              \"cost\": 2634.2565301808518\n            }\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "4a999951-8adf-4b67-9f34-cc8067277f98",
+      "name": "CustomCost",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "90933aa9-5706-4a0e-be79-c99f5e739223",
+          "name": "Custom cost timeseries data",
+          "request": {
+            "name": "Custom cost timeseries data",
+            "description": {},
+            "url": {
+              "path": [
+                "customCost",
+                "timeseries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "window",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "aggregate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "accumulate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5f1da4c2-7b95-4b18-8dd5-aef46878a263",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customCost",
+                    "timeseries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accumulate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "590c4d61-2516-4a02-ad93-8c2edf26a24c",
+          "name": "Custom cost totals",
+          "request": {
+            "name": "Custom cost totals",
+            "description": {},
+            "url": {
+              "path": [
+                "customCost",
+                "total"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "window",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "aggregate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "accumulate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6e5b8bb5-1646-4db6-aa6d-23ff7641be58",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customCost",
+                    "total"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accumulate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:9003",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f318a7cb-54ff-4d69-a9a5-38a02b1ecc2f",
+    "name": "OpenCost API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenCost API provides real-time and historical reporting of Kubernetes workload costs and underlying cloud infrastructure spend. OpenCost is an open source CNCF specification and reference implementation for Kubernetes cost monitoring and FinOps.\n\nContact Support:\n Name: OpenCost",
+      "type": "text/plain"
+    }
+  }
+}

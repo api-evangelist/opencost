@@ -1,0 +1,225 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenCost API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Allocation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Kubernetes workload cost allocations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:9003/allocation",
+            "params": [
+              {
+                "name": "window",
+                "value": "",
+                "type": "query",
+                "description": "Duration of time over which to query."
+              },
+              {
+                "name": "aggregate",
+                "value": "",
+                "type": "query",
+                "description": "Field by which to aggregate (namespace, controller, label:app, etc.)."
+              },
+              {
+                "name": "step",
+                "value": "",
+                "type": "query",
+                "description": "Duration of a single allocation set."
+              },
+              {
+                "name": "accumulate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeIdle",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "shareIdle",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "idleByNode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns costs and resources allocated to Kubernetes workloads based on on-demand list pricing.  The 'data' field is an array of sets, one per 'step'."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Assets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query underlying cloud infrastructure asset costs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:9003/assets",
+            "params": [
+              {
+                "name": "window",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggregate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "accumulate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the costs of nodes, disks, and load balancers."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "CloudCost",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query cloud provider billing data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:9003/cloudCost",
+            "params": [
+              {
+                "name": "window",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggregate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "accumulate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves non-Kubernetes cloud provider costs via cloud integration."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "CustomCost",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Custom cost timeseries data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:9003/customCost/timeseries",
+            "params": [
+              {
+                "name": "window",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggregate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "accumulate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Custom cost timeseries data"
+        },
+        {
+          "info": {
+            "name": "Custom cost totals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:9003/customCost/total",
+            "params": [
+              {
+                "name": "window",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggregate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "accumulate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Custom cost totals"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
