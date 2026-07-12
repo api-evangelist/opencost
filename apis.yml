@@ -46,6 +46,8 @@ apis:
       - type: JSONLD
         url: https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-ld/opencost-context.jsonld
 common:
+  - type: DomainSecurity
+    url: security/opencost-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/showcase/opencost
   - type: Website
@@ -54,6 +56,8 @@ common:
     url: https://www.opencost.io/docs/
   - type: GitHubOrganization
     url: https://github.com/opencost/opencost
+  - url: https://opencost.io/blog/rss.xml
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
