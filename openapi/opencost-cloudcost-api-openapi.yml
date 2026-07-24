@@ -1,0 +1,83 @@
+openapi: 3.1.0
+info:
+  title: OpenCost Allocation CloudCost API
+  description: The OpenCost API provides real-time and historical reporting of Kubernetes workload costs and underlying cloud infrastructure spend. OpenCost is an open source CNCF specification and reference implementation for Kubernetes cost monitoring and FinOps.
+  version: '1.0'
+  contact:
+    name: OpenCost
+    url: https://www.opencost.io/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: http://localhost:9003
+  description: Local kubectl port-forward to opencost service
+tags:
+- name: CloudCost
+paths:
+  /cloudCost:
+    get:
+      operationId: getCloudCost
+      summary: Query cloud provider billing data
+      description: Retrieves non-Kubernetes cloud provider costs via cloud integration.
+      tags:
+      - CloudCost
+      parameters:
+      - name: window
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: aggregate
+        in: query
+        schema:
+          type: string
+      - name: accumulate
+        in: query
+        schema:
+          type: string
+      - name: filter
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudCostResponse'
+components:
+  schemas:
+    CloudCostSet:
+      type: object
+      properties:
+        cloudCosts:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CloudCostItem'
+    CloudCostResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+        status:
+          type: string
+        data:
+          type: object
+          properties:
+            sets:
+              type: array
+              items:
+                $ref: '#/components/schemas/CloudCostSet'
+    CloudCostItem:
+      type: object
+      properties:
+        netCost:
+          type: object
+          properties:
+            cost:
+              type: number
+externalDocs:
+  description: OpenCost API Documentation
+  url: https://www.opencost.io/docs/integrations/api

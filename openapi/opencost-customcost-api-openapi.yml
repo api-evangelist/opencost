@@ -1,0 +1,74 @@
+openapi: 3.1.0
+info:
+  title: OpenCost Allocation CustomCost API
+  description: The OpenCost API provides real-time and historical reporting of Kubernetes workload costs and underlying cloud infrastructure spend. OpenCost is an open source CNCF specification and reference implementation for Kubernetes cost monitoring and FinOps.
+  version: '1.0'
+  contact:
+    name: OpenCost
+    url: https://www.opencost.io/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: http://localhost:9003
+  description: Local kubectl port-forward to opencost service
+tags:
+- name: CustomCost
+paths:
+  /customCost/timeseries:
+    get:
+      operationId: getCustomCostTimeseries
+      summary: Custom cost timeseries data
+      tags:
+      - CustomCost
+      parameters:
+      - name: window
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: aggregate
+        in: query
+        schema:
+          type: string
+      - name: accumulate
+        in: query
+        schema:
+          type: string
+      - name: filter
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+  /customCost/total:
+    get:
+      operationId: getCustomCostTotal
+      summary: Custom cost totals
+      tags:
+      - CustomCost
+      parameters:
+      - name: window
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: aggregate
+        in: query
+        schema:
+          type: string
+      - name: accumulate
+        in: query
+        schema:
+          type: string
+      - name: filter
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+externalDocs:
+  description: OpenCost API Documentation
+  url: https://www.opencost.io/docs/integrations/api

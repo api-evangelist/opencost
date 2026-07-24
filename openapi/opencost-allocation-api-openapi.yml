@@ -1,0 +1,131 @@
+openapi: 3.1.0
+info:
+  title: OpenCost Allocation API
+  description: The OpenCost API provides real-time and historical reporting of Kubernetes workload costs and underlying cloud infrastructure spend. OpenCost is an open source CNCF specification and reference implementation for Kubernetes cost monitoring and FinOps.
+  version: '1.0'
+  contact:
+    name: OpenCost
+    url: https://www.opencost.io/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: http://localhost:9003
+  description: Local kubectl port-forward to opencost service
+tags:
+- name: Allocation
+paths:
+  /allocation:
+    get:
+      operationId: getAllocation
+      summary: Query Kubernetes workload cost allocations
+      description: Returns costs and resources allocated to Kubernetes workloads based on on-demand list pricing.  The 'data' field is an array of sets, one per 'step'.
+      tags:
+      - Allocation
+      parameters:
+      - name: window
+        in: query
+        required: true
+        description: Duration of time over which to query.
+        schema:
+          type: string
+        examples:
+          today:
+            value: today
+          lastweek:
+            value: lastweek
+          range:
+            value: 2024-01-01T00:00:00Z,2024-01-02T00:00:00Z
+      - name: aggregate
+        in: query
+        description: Field by which to aggregate (namespace, controller, label:app, etc.).
+        schema:
+          type: string
+      - name: step
+        in: query
+        description: Duration of a single allocation set.
+        schema:
+          type: string
+      - name: accumulate
+        in: query
+        schema:
+          type: boolean
+      - name: resolution
+        in: query
+        schema:
+          type: string
+      - name: includeIdle
+        in: query
+        schema:
+          type: boolean
+      - name: shareIdle
+        in: query
+        schema:
+          type: boolean
+      - name: idleByNode
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllocationResponse'
+components:
+  schemas:
+    Allocation:
+      type: object
+      properties:
+        name:
+          type: string
+        cpuCost:
+          type: number
+        cpuCoreUsageAverage:
+          type: number
+        ramCost:
+          type: number
+        ramByteUsageAverage:
+          type: number
+        pvCost:
+          type: number
+        networkCost:
+          type: number
+        sharedCost:
+          type: number
+        externalCost:
+          type: number
+        totalCost:
+          type: number
+        minutes:
+          type: number
+        window:
+          type: object
+          properties:
+            start:
+              type: string
+              format: date-time
+            end:
+              type: string
+              format: date-time
+        properties:
+          type: object
+          additionalProperties:
+            type: string
+    AllocationResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              $ref: '#/components/schemas/Allocation'
+externalDocs:
+  description: OpenCost API Documentation
+  url: https://www.opencost.io/docs/integrations/api
