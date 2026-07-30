@@ -4,9 +4,21 @@ description: >-
   An open source CNCF specification and reference implementation for real-time cost monitoring of Kubernetes
   infrastructure and cloud spending, enabling teams to measure, allocate, and optimize cloud costs across workloads.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/opencost.png
 tags:
   - Cloud Cost Management
   - CNCF
@@ -18,33 +30,102 @@ created: '2025-01-01'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: opencost:opencost-api
-    name: OpenCost API
-    description: >-
-      The OpenCost REST API exposes real-time and historical reporting of Kubernetes workload costs and underlying cloud
-      infrastructure spend, including allocation, asset, and cloud cost endpoints.
-    humanURL: https://www.opencost.io/docs/integrations/api
-    baseURL: http://localhost:9003
-    tags:
-      - Kubernetes
-      - FinOps
-      - Cost Allocation
-    properties:
-      - type: Documentation
-        url: https://www.opencost.io/docs/integrations/api
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/openapi/opencost-openapi.yml
-      - type: JSONSchema
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-schema/opencost-allocation-schema.json
-      - type: JSONSchema
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-schema/opencost-asset-schema.json
-      - type: JSONSchema
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-schema/opencost-cloudcost-schema.json
-      - type: JSONLD
-        url: https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-ld/opencost-context.jsonld
+- aid: opencost:opencost-allocation-api
+  name: OpenCost Allocation API
+  description: The Allocation API from OpenCost — 1 operation(s) for allocation.
+  humanURL: https://www.opencost.io/docs/integrations/api
+  baseURL: http://localhost:9003
+  tags:
+  - Allocation
+  properties:
+  - type: OpenAPI
+    url: openapi/opencost-allocation-api-openapi.yml
+  - type: Documentation
+    url: https://www.opencost.io/docs/integrations/api
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-schema/opencost-allocation-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-schema/opencost-asset-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-schema/opencost-cloudcost-schema.json
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-ld/opencost-context.jsonld
+- aid: opencost:opencost-assets-api
+  name: OpenCost Assets API
+  description: The Assets API from OpenCost — 1 operation(s) for assets.
+  humanURL: https://www.opencost.io/docs/integrations/api
+  baseURL: http://localhost:9003
+  tags:
+  - Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/opencost-assets-api-openapi.yml
+  - type: Documentation
+    url: https://www.opencost.io/docs/integrations/api
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-schema/opencost-allocation-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-schema/opencost-asset-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-schema/opencost-cloudcost-schema.json
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-ld/opencost-context.jsonld
+- aid: opencost:opencost-cloudcost-api
+  name: OpenCost CloudCost API
+  description: The CloudCost API from OpenCost — 1 operation(s) for cloudcost.
+  humanURL: https://www.opencost.io/docs/integrations/api
+  baseURL: http://localhost:9003
+  tags:
+  - CloudCost
+  properties:
+  - type: OpenAPI
+    url: openapi/opencost-cloudcost-api-openapi.yml
+  - type: Documentation
+    url: https://www.opencost.io/docs/integrations/api
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-schema/opencost-allocation-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-schema/opencost-asset-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-schema/opencost-cloudcost-schema.json
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-ld/opencost-context.jsonld
+- aid: opencost:opencost-customcost-api
+  name: OpenCost CustomCost API
+  description: The CustomCost API from OpenCost — 2 operation(s) for customcost.
+  humanURL: https://www.opencost.io/docs/integrations/api
+  baseURL: http://localhost:9003
+  tags:
+  - CustomCost
+  properties:
+  - type: OpenAPI
+    url: openapi/opencost-customcost-api-openapi.yml
+  - type: Documentation
+    url: https://www.opencost.io/docs/integrations/api
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-schema/opencost-allocation-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-schema/opencost-asset-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-schema/opencost-cloudcost-schema.json
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-ld/opencost-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/opencost-agentic-access.yml
