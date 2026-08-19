@@ -1,0 +1,141 @@
+{
+  "item": [
+    {
+      "id": "2c1a5d5a-2249-4854-b7e7-dfe910bf19c0",
+      "name": "CloudCost",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "02276097-6ee4-4f79-9f35-6988243be5dc",
+          "name": "Query cloud provider billing data",
+          "request": {
+            "name": "Query cloud provider billing data",
+            "description": {
+              "content": "Retrieves non-Kubernetes cloud provider costs via cloud integration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cloudCost"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "window",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "aggregate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "accumulate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7225b024-3624-44ce-bead-30732e5c1c6b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloudCost"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accumulate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6390,\n  \"status\": \"string\",\n  \"data\": {\n    \"sets\": [\n      {\n        \"cloudCosts\": {\n          \"key_0\": {\n            \"netCost\": {\n              \"cost\": 7762.877840281817\n            }\n          }\n        }\n      },\n      {\n        \"cloudCosts\": {\n          \"key_0\": {\n            \"netCost\": {\n              \"cost\": 6477.039296665864\n            }\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:9003",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b86aeb31-617e-43fb-b6b4-df4b85800aef",
+    "name": "OpenCost Allocation CloudCost API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenCost API provides real-time and historical reporting of Kubernetes workload costs and underlying cloud infrastructure spend. OpenCost is an open source CNCF specification and reference implementation for Kubernetes cost monitoring and FinOps.\n\nContact Support:\n Name: OpenCost",
+      "type": "text/plain"
+    }
+  }
+}

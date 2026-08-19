@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenCost Allocation CustomCost API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CustomCost",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Custom cost timeseries data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:9003/customCost/timeseries",
+            "params": [
+              {
+                "name": "window",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggregate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "accumulate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Custom cost timeseries data"
+        },
+        {
+          "info": {
+            "name": "Custom cost totals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:9003/customCost/total",
+            "params": [
+              {
+                "name": "window",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggregate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "accumulate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Custom cost totals"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenCost Allocation CloudCost API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CloudCost",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query cloud provider billing data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:9003/cloudCost",
+            "params": [
+              {
+                "name": "window",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggregate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "accumulate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves non-Kubernetes cloud provider costs via cloud integration."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

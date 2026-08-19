@@ -1,0 +1,132 @@
+{
+  "item": [
+    {
+      "id": "d4ef3521-7b32-4065-92bb-1819e92a095b",
+      "name": "Assets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1c322cc9-94ac-4933-97c0-5d545c31a64e",
+          "name": "Query underlying cloud infrastructure asset costs",
+          "request": {
+            "name": "Query underlying cloud infrastructure asset costs",
+            "description": {
+              "content": "Returns the costs of nodes, disks, and load balancers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "window",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "aggregate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "accumulate",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5157fc5f-bbec-4909-8705-2f4fab41a9f5",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accumulate",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3143,\n  \"status\": \"string\",\n  \"data\": {\n    \"key_0\": {\n      \"type\": \"string\",\n      \"totalCost\": 777.6478580858026,\n      \"cpuCost\": 827.9470213344764,\n      \"ramCost\": 9829.848412912168,\n      \"providerID\": \"string\",\n      \"window\": {\n        \"start\": \"1967-12-16T21:45:32.736Z\",\n        \"end\": \"2005-05-09T21:41:09.366Z\"\n      }\n    },\n    \"key_1\": {\n      \"type\": \"string\",\n      \"totalCost\": 8678.449037707582,\n      \"cpuCost\": 3.5325932422880513,\n      \"ramCost\": 7078.280668635698,\n      \"providerID\": \"string\",\n      \"window\": {\n        \"start\": \"2009-03-28T06:29:01.045Z\",\n        \"end\": \"1977-03-20T16:36:09.870Z\"\n      }\n    },\n    \"key_2\": {\n      \"type\": \"string\",\n      \"totalCost\": 1042.6843921961226,\n      \"cpuCost\": 783.0557994132148,\n      \"ramCost\": 9136.930398271234,\n      \"providerID\": \"string\",\n      \"window\": {\n        \"start\": \"1974-07-25T20:26:47.447Z\",\n        \"end\": \"2008-05-24T13:50:57.920Z\"\n      }\n    },\n    \"key_3\": {\n      \"type\": \"string\",\n      \"totalCost\": 7006.819517457906,\n      \"cpuCost\": 5331.449774383221,\n      \"ramCost\": 7853.4813882250155,\n      \"providerID\": \"string\",\n      \"window\": {\n        \"start\": \"2012-08-14T19:56:23.441Z\",\n        \"end\": \"1953-09-11T00:52:04.602Z\"\n      }\n    },\n    \"key_4\": {\n      \"type\": \"string\",\n      \"totalCost\": 2240.2154186628677,\n      \"cpuCost\": 6251.71253271474,\n      \"ramCost\": 8340.05808847693,\n      \"providerID\": \"string\",\n      \"window\": {\n        \"start\": \"1959-05-25T21:07:50.167Z\",\n        \"end\": \"1978-11-07T02:25:15.280Z\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:9003",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8dd86a75-ff57-44fa-a2e2-9c61e417375c",
+    "name": "OpenCost Allocation Assets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenCost API provides real-time and historical reporting of Kubernetes workload costs and underlying cloud infrastructure spend. OpenCost is an open source CNCF specification and reference implementation for Kubernetes cost monitoring and FinOps.\n\nContact Support:\n Name: OpenCost",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "item": [
+    {
+      "id": "3216c29c-57a4-42d6-9a49-094a139e6445",
+      "name": "CustomCost",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3894c259-4af4-4c7b-a51d-76be8a6fc121",
+          "name": "Custom cost timeseries data",
+          "request": {
+            "name": "Custom cost timeseries data",
+            "description": {},
+            "url": {
+              "path": [
+                "customCost",
+                "timeseries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "window",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "aggregate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "accumulate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5fbc473b-8e9c-46aa-af70-27547254c227",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customCost",
+                    "timeseries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accumulate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2d50ed4-adc0-4213-b36c-fdb8d4a8b431",
+          "name": "Custom cost totals",
+          "request": {
+            "name": "Custom cost totals",
+            "description": {},
+            "url": {
+              "path": [
+                "customCost",
+                "total"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "window",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "aggregate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "accumulate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "60d36d87-9535-4b6f-80d4-0a4a27bf6778",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customCost",
+                    "total"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accumulate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:9003",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e027d3d8-8311-4726-b47c-290b88975dd9",
+    "name": "OpenCost Allocation CustomCost API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenCost API provides real-time and historical reporting of Kubernetes workload costs and underlying cloud infrastructure spend. OpenCost is an open source CNCF specification and reference implementation for Kubernetes cost monitoring and FinOps.\n\nContact Support:\n Name: OpenCost",
+      "type": "text/plain"
+    }
+  }
+}

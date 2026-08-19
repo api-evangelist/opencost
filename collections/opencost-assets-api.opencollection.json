@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenCost Allocation Assets API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query underlying cloud infrastructure asset costs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:9003/assets",
+            "params": [
+              {
+                "name": "window",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggregate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "accumulate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the costs of nodes, disks, and load balancers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

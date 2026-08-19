@@ -1,0 +1,179 @@
+{
+  "item": [
+    {
+      "id": "089cb84d-94de-47c1-a282-921a90f86d37",
+      "name": "Allocation",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "afbac032-8f5f-476d-8189-a8029ab08513",
+          "name": "Query Kubernetes workload cost allocations",
+          "request": {
+            "name": "Query Kubernetes workload cost allocations",
+            "description": {
+              "content": "Returns costs and resources allocated to Kubernetes workloads based on on-demand list pricing.  The 'data' field is an array of sets, one per 'step'.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "allocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "window",
+                  "value": "<string>",
+                  "description": "(Required) Duration of time over which to query."
+                },
+                {
+                  "disabled": false,
+                  "key": "aggregate",
+                  "value": "<string>",
+                  "description": "Field by which to aggregate (namespace, controller, label:app, etc.)."
+                },
+                {
+                  "disabled": false,
+                  "key": "step",
+                  "value": "<string>",
+                  "description": "Duration of a single allocation set."
+                },
+                {
+                  "disabled": false,
+                  "key": "accumulate",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resolution",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeIdle",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "shareIdle",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "idleByNode",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2cb406c9-570d-4d36-8ca7-14c3c072e32d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "allocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "window",
+                      "value": "today"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "step",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accumulate",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "resolution",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeIdle",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "shareIdle",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "idleByNode",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5554,\n  \"status\": \"string\",\n  \"data\": [\n    {\n      \"key_0\": {\n        \"name\": \"string\",\n        \"cpuCost\": 3074.0649475769856,\n        \"cpuCoreUsageAverage\": 9401.510466521639,\n        \"ramCost\": 9371.018829638184,\n        \"ramByteUsageAverage\": 7910.651189160755,\n        \"pvCost\": 5597.65854489892,\n        \"networkCost\": 5297.9340440708875,\n        \"sharedCost\": 2495.584066309471,\n        \"externalCost\": 4344.905896768723,\n        \"totalCost\": 4753.072809706274,\n        \"minutes\": 8647.170958150848,\n        \"window\": {\n          \"start\": \"1965-10-13T05:57:39.576Z\",\n          \"end\": \"2017-02-23T02:57:04.467Z\"\n        },\n        \"properties\": {\n          \"key_0\": \"string\"\n        }\n      },\n      \"key_1\": {\n        \"name\": \"string\",\n        \"cpuCost\": 1757.7765758185515,\n        \"cpuCoreUsageAverage\": 3075.4439954469913,\n        \"ramCost\": 1318.1459356021019,\n        \"ramByteUsageAverage\": 7756.4609774304845,\n        \"pvCost\": 3646.2779310786063,\n        \"networkCost\": 5280.7570896929265,\n        \"sharedCost\": 3930.2009621249435,\n        \"externalCost\": 4975.011534585819,\n        \"totalCost\": 7405.335835883541,\n        \"minutes\": 6592.426952797191,\n        \"window\": {\n          \"start\": \"1961-11-07T22:40:46.954Z\",\n          \"end\": \"2022-03-30T11:19:38.605Z\"\n        },\n        \"properties\": {\n          \"key_0\": \"string\"\n        }\n      }\n    },\n    {\n      \"key_0\": {\n        \"name\": \"string\",\n        \"cpuCost\": 9364.757663685523,\n        \"cpuCoreUsageAverage\": 6787.164525343692,\n        \"ramCost\": 6111.187586554027,\n        \"ramByteUsageAverage\": 6534.707529186545,\n        \"pvCost\": 3262.6160239328105,\n        \"networkCost\": 2093.687420253311,\n        \"sharedCost\": 5533.031386219591,\n        \"externalCost\": 8312.859924145747,\n        \"totalCost\": 1707.1396935452253,\n        \"minutes\": 9717.482157757171,\n        \"window\": {\n          \"start\": \"1996-02-27T22:31:16.134Z\",\n          \"end\": \"1996-09-05T11:17:27.712Z\"\n        },\n        \"properties\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      \"key_1\": {\n        \"name\": \"string\",\n        \"cpuCost\": 1590.6279657455757,\n        \"cpuCoreUsageAverage\": 4539.089399055897,\n        \"ramCost\": 8133.296222314846,\n        \"ramByteUsageAverage\": 8152.726631882738,\n        \"pvCost\": 7228.835305522907,\n        \"networkCost\": 4220.105599944926,\n        \"sharedCost\": 9930.257829209098,\n        \"externalCost\": 7900.776024709476,\n        \"totalCost\": 3655.947741735417,\n        \"minutes\": 60.28867770117352,\n        \"window\": {\n          \"start\": \"1997-06-16T08:47:53.047Z\",\n          \"end\": \"2015-07-21T19:44:41.823Z\"\n        },\n        \"properties\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      \"key_2\": {\n        \"name\": \"string\",\n        \"cpuCost\": 1482.8113951751386,\n        \"cpuCoreUsageAverage\": 7177.545294211674,\n        \"ramCost\": 178.74861369769346,\n        \"ramByteUsageAverage\": 2882.4393385940784,\n        \"pvCost\": 3389.219091387545,\n        \"networkCost\": 7966.255034220454,\n        \"sharedCost\": 5692.618227769883,\n        \"externalCost\": 751.8186247377656,\n        \"totalCost\": 2066.886053612871,\n        \"minutes\": 9857.687095645955,\n        \"window\": {\n          \"start\": \"1989-06-15T18:14:09.612Z\",\n          \"end\": \"1999-08-25T05:52:56.958Z\"\n        },\n        \"properties\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      \"key_3\": {\n        \"name\": \"string\",\n        \"cpuCost\": 9858.995361893172,\n        \"cpuCoreUsageAverage\": 3508.090242952805,\n        \"ramCost\": 4564.09993021378,\n        \"ramByteUsageAverage\": 5313.756317121751,\n        \"pvCost\": 5902.5611606675375,\n        \"networkCost\": 1893.9591414935896,\n        \"sharedCost\": 7864.570467975765,\n        \"externalCost\": 1708.520489303017,\n        \"totalCost\": 4204.115332044788,\n        \"minutes\": 1245.8921245537213,\n        \"window\": {\n          \"start\": \"1951-05-23T08:56:12.185Z\",\n          \"end\": \"1962-06-13T17:49:41.699Z\"\n        },\n        \"properties\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:9003",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "abaee676-197d-4d5e-a900-2cef71034f44",
+    "name": "OpenCost Allocation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenCost API provides real-time and historical reporting of Kubernetes workload costs and underlying cloud infrastructure spend. OpenCost is an open source CNCF specification and reference implementation for Kubernetes cost monitoring and FinOps.\n\nContact Support:\n Name: OpenCost",
+      "type": "text/plain"
+    }
+  }
+}
