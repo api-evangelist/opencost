@@ -4,6 +4,17 @@ description: >-
   An open source CNCF specification and reference implementation for real-time cost monitoring of Kubernetes
   infrastructure and cloud spending, enabling teams to measure, allocate, and optimize cloud costs across workloads.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
