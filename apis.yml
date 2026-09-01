@@ -47,7 +47,7 @@ apis:
   humanURL: https://www.opencost.io/docs/integrations/api
   baseURL: http://localhost:9003
   tags:
-  - Allocation
+  - Allocations
   tags_raw:
   - Allocation
   properties:
@@ -97,7 +97,7 @@ apis:
   humanURL: https://www.opencost.io/docs/integrations/api
   baseURL: http://localhost:9003
   tags:
-  - CloudCost
+  - Cloud Cost
   tags_raw:
   - CloudCost
   properties:
