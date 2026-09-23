@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: OpenCost Allocation API
   description: The OpenCost API provides real-time and historical reporting of Kubernetes workload costs and underlying cloud infrastructure spend. OpenCost is an open source CNCF specification and reference implementation for Kubernetes cost monitoring and FinOps.
@@ -19,7 +19,7 @@ paths:
     get:
       operationId: getAllocation
       summary: Query Kubernetes workload cost allocations
-      description: Returns costs and resources allocated to Kubernetes workloads based on on-demand list pricing.  The 'data' field is an array of sets, one per 'step'.
+      description: Returns costs and resources allocated to Kubernetes workloads based on on-demand list pricing. The 'data' field is an array of sets, one per 'step'.
       tags:
       - Allocation
       parameters:
