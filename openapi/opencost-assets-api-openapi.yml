@@ -45,6 +45,17 @@ paths:
                 $ref: '#/components/schemas/AssetsResponse'
 components:
   schemas:
+    AssetsResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+        status:
+          type: string
+        data:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Asset'
     Asset:
       type: object
       properties:
@@ -67,17 +78,6 @@ components:
             end:
               type: string
               format: date-time
-    AssetsResponse:
-      type: object
-      properties:
-        code:
-          type: integer
-        status:
-          type: string
-        data:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Asset'
 externalDocs:
   description: OpenCost API Documentation
   url: https://www.opencost.io/docs/integrations/api

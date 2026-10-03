@@ -49,6 +49,21 @@ paths:
                 $ref: '#/components/schemas/CloudCostResponse'
 components:
   schemas:
+    CloudCostSet:
+      type: object
+      properties:
+        cloudCosts:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CloudCostItem'
+    CloudCostItem:
+      type: object
+      properties:
+        netCost:
+          type: object
+          properties:
+            cost:
+              type: number
     CloudCostResponse:
       type: object
       properties:
@@ -63,21 +78,6 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/CloudCostSet'
-    CloudCostItem:
-      type: object
-      properties:
-        netCost:
-          type: object
-          properties:
-            cost:
-              type: number
-    CloudCostSet:
-      type: object
-      properties:
-        cloudCosts:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/CloudCostItem'
 externalDocs:
   description: OpenCost API Documentation
   url: https://www.opencost.io/docs/integrations/api

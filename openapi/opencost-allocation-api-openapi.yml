@@ -75,6 +75,19 @@ paths:
                 $ref: '#/components/schemas/AllocationResponse'
 components:
   schemas:
+    AllocationResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              $ref: '#/components/schemas/Allocation'
     Allocation:
       type: object
       properties:
@@ -113,19 +126,6 @@ components:
           type: object
           additionalProperties:
             type: string
-    AllocationResponse:
-      type: object
-      properties:
-        code:
-          type: integer
-        status:
-          type: string
-        data:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              $ref: '#/components/schemas/Allocation'
 externalDocs:
   description: OpenCost API Documentation
   url: https://www.opencost.io/docs/integrations/api
