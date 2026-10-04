@@ -1,0 +1,55 @@
+slug: opencost
+provider: OpenCost
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Allocation
+  spec_file: opencost-allocation-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.88
+  evidence: GET /allocation  getAllocation  Query Kubernetes workload cost allocations
+  reason: Allocating infrastructure cost to Kubernetes workloads/namespaces is showback/chargeback of
+    IT spend, squarely IT Financial Management; the vendor describes itself as cost monitoring and FinOps
+    for Kubernetes.
+- tag: Assets
+  spec_file: opencost-assets-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.85
+  evidence: GET /assets  getAssets  Query underlying cloud infrastructure asset costs
+  reason: Reports cost of underlying cloud infrastructure assets (compute, storage, network) — IT spend
+    visibility and cost optimisation rather than fixed-asset accounting, since no ledger or depreciation
+    semantics appear.
+- tag: CloudCost
+  spec_file: opencost-cloudcost-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.85
+  evidence: GET /cloudCost  getCloudCost  Query cloud provider billing data
+  reason: Querying cloud provider billing data for cost reporting is IT cost/spend management (FinOps),
+    not accounts payable or subscription billing issuance — this API consumes billing data rather than
+    producing invoices.
+- tag: CustomCost
+  spec_file: opencost-customcost-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.7
+  evidence: GET /customCost/timeseries  getCustomCostTimeseries  Custom cost timeseries data; GET /customCost/total
+  reason: Same FinOps cost-reporting surface extended to non-Kubernetes/custom cost sources, so IT Financial
+    Management applies; lower confidence because the tag has no schemas and only generic timeseries/total
+    summaries.

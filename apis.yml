@@ -142,6 +142,9 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/opencost/refs/heads/main/json-ld/opencost-context.jsonld
 common:
+  - type: CapabilityMap
+    url: capabilities/opencost-capability-edges.yml
+    name: OpenCost Business Capability Map
   - type: AgenticAccess
     url: agentic-access/opencost-agentic-access.yml
   - type: DomainSecurity
